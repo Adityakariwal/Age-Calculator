@@ -51,7 +51,6 @@ btn.addEventListener("click",(e)=>{
         success(2);
     if(daycheck==true && monthcheck==true && yearcheck==true)
     {
-        btn.style.color = "green";
         let ageday=0,agemonth=0,ageyear=0;
         if(currmonth+1>monthinput.value)
         {
@@ -82,30 +81,38 @@ btn.addEventListener("click",(e)=>{
         let intervalday = setInterval(updateday,50);
         function updateyear()
         {
-            yearoutput.innerHTML = ++yo;
-            if(yo==ageyear)
+            yearoutput.innerHTML = yo++;
+            if(yo>ageyear)
                 clearInterval(intervalyear);
         }
         function updatemonth()
         {
-           monthoutput.innerHTML = ++mo;
-            if(mo==agemonth)
+           monthoutput.innerHTML = mo++;
+            if(mo>agemonth)
                 clearInterval(intervalmonth);
         }
         function updateday()
         {
-            dayoutput.innerHTML = ++dayo;
-            if(dayo==ageday)
+            dayoutput.innerHTML = dayo++;
+            if(dayo>ageday)
                 clearInterval(intervalday);
         }
     }
     else
     {
-        btn.style.color = "red";
+        dayinput.style.borderColor= "red";
+        monthinput.style.borderColor= "red";
+        yearinput.style.borderColor= "red";
         yearoutput.innerHTML = "- -";
         monthoutput.innerHTML = "- -";
         dayoutput.innerHTML = "- -";
     }
+    if(yearcheck==true)
+        yearinput.style.borderColor= "hsl(0, 0%, 94%)";
+    if(monthcheck==true)
+        monthinput.style.borderColor= "hsl(0, 0%, 94%)";
+    if(daycheck==true)
+        dayinput.style.borderColor= "hsl(0, 0%, 94%)";
 
 })
 function required(i){
