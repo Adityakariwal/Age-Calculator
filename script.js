@@ -51,6 +51,7 @@ btn.addEventListener("click",(e)=>{
         success(2);
     if(daycheck==true && monthcheck==true && yearcheck==true)
     {
+        btn.style.color = "green";
         let ageday=0,agemonth=0,ageyear=0;
         if(currmonth+1>monthinput.value)
         {
@@ -75,17 +76,35 @@ btn.addEventListener("click",(e)=>{
             }
 
         }
-        console.log(ageyear);
-        console.log(agemonth);
-        console.log(ageday);
-        /*if(agemonth>11)
+        let yo=0,mo=0,dayo=0;
+        let intervalyear = setInterval(updateyear,50);
+        let intervalmonth = setInterval(updatemonth,50);
+        let intervalday = setInterval(updateday,50);
+        function updateyear()
         {
-            agemonth = agemonth-12;
-            ageyear++;
-        }*/  
-        yearoutput.innerHTML = ageyear;
-        monthoutput.innerHTML = agemonth;
-        dayoutput.innerHTML = ageday;
+            yearoutput.innerHTML = ++yo;
+            if(yo==ageyear)
+                clearInterval(intervalyear);
+        }
+        function updatemonth()
+        {
+           monthoutput.innerHTML = ++mo;
+            if(mo==agemonth)
+                clearInterval(intervalmonth);
+        }
+        function updateday()
+        {
+            dayoutput.innerHTML = ++dayo;
+            if(dayo==ageday)
+                clearInterval(intervalday);
+        }
+    }
+    else
+    {
+        btn.style.color = "red";
+        yearoutput.innerHTML = "- -";
+        monthoutput.innerHTML = "- -";
+        dayoutput.innerHTML = "- -";
     }
 
 })
