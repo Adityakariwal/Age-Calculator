@@ -105,6 +105,9 @@ hr.line{
     margin-right: 0px;
     border-color: var(--purple);
 }
+.btn:hover{
+    cursor:pointer;
+}
 .arrow{
     font-size: 2.5rem;
 }
