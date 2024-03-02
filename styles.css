@@ -113,7 +113,7 @@ hr.line{
 }
 @media screen and (max-width:800px) {
     .main{
-        max-width: 400px;
+        max-width: 375px;
     }
     .input{
         max-width: 100%;
@@ -135,7 +135,7 @@ hr.line{
     }
 
     .day-output,.month-output,.year-output,.text{
-        font-size: 4rem;
+        font-size: 3.5rem;
         font-style: italic;
         font-weight: 900;
     }
