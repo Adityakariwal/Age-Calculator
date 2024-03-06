@@ -62,18 +62,27 @@ btn.addEventListener("click",(e)=>{
                 ageday = ageday - arr[agemonth];
                 agemonth++;
             }
+            if(agemonth>=12)
+            {
+                agemonth-=12;
+                ageyear++;
+            }
         }
         else
         {
             ageyear = curryear - yearinput.value - 1;
             agemonth = 12-monthinput.value + currmonth;
             ageday = arr[monthinput.value-1] - dayinput.value + currday;
-            if(ageday>arr[agemonth])
+            if(ageday>=arr[agemonth])
             {
                 ageday = ageday - arr[agemonth];
                 agemonth++;
             }
-
+            if(agemonth>=12)
+            {
+                agemonth-=12;
+                ageyear++;
+            }
         }
         let yo=0,mo=0,dayo=0;
         let intervalyear = setInterval(updateyear,50);
